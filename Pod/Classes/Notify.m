@@ -24,7 +24,7 @@
 	if ([[TSMessage defaultViewController] isKindOfClass:[DisableNotificationController class]]) {
 		return;
 	}
-	
+
 	// do it in main thread
 	dispatch_async(dispatch_get_main_queue(), ^() {
 		[TSMessage showNotificationInViewController:[TSMessage defaultViewController]
@@ -34,21 +34,20 @@
 																			 duration:duration
 													 canBeDismissedByUser:TRUE];
 	});
-	
+
 }
 
 + (void) showAlertMessage:(NSString *)message
 				cancelButtonTitle:(NSString *)cancelButtonTitle
 				 otherButtonTitle:(NSString *)otherButtonTitle {
-	
+
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"PRODUCT_NAME", nil)
 																									message:NSLocalizedString(message, nil)
 																								 delegate:nil
 																				cancelButtonTitle:NSLocalizedString(cancelButtonTitle, nil)
 																				otherButtonTitles:(otherButtonTitle == nil) ? nil : NSLocalizedString(otherButtonTitle, nil),nil];
 	[alert show];
-	[alert release];
-	
+
 }
 
 @end
