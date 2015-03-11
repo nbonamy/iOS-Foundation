@@ -7,13 +7,12 @@
 //
 
 #import "UIView+Utils.h"
-#import "MBProgressHUD.h"
 #import "TSMessage.h"
 
 @implementation UIView (Utils)
 
 + (CGSize) getScreenSize {
-	
+
 	// get screen size
 	UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
 	CGRect appFrame = [UIScreen mainScreen].applicationFrame;
@@ -24,7 +23,7 @@
 		fullWidth = fullHeight;
 		fullHeight = swap;
 	}
-	
+
 	// done
 	return CGSizeMake(fullWidth, fullHeight);
 }
