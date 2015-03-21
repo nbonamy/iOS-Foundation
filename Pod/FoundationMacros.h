@@ -25,9 +25,6 @@
 #define IS_IOS_8()				([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0 && [[[UIDevice currentDevice] systemVersion] floatValue] < 9.0)
 #define IS_IOS_80()				([[[UIDevice currentDevice] systemVersion] floatValue] == 8.0)
 
-// for webservices
-#define JSON_DATE_FORMAT @"yyyy-MM-dd HH:mm:ss"
-
 // dynamic properties
 #define ADD_DYNAMIC_PROPERTY(PROPERTY_TYPE,PROPERTY_NAME,SETTER_NAME) \
 @dynamic PROPERTY_NAME ; \
