@@ -21,12 +21,11 @@
 	if ([self responseStatusCode] != 200) {
 		
 		// the error message
-		NSString* errorMessage = [NSString stringWithFormat:@"%d: %@", [self responseStatusCode], [self responseString]];
-		NSDictionary* dictInfo = [NSDictionary dictionaryWithObject:errorMessage forKey:NSLocalizedDescriptionKey];
+		NSDictionary* dictInfo = [NSDictionary dictionaryWithObject:[self responseString] forKey:NSLocalizedDescriptionKey];
 		
 		// set error
 		[self setError:[NSError errorWithDomain:@"HTTP_Error"
-																			 code:1
+																			 code:[self responseStatusCode]
 																	 userInfo:dictInfo]];
 		return YES;
 	}
@@ -51,7 +50,7 @@
 			
 			// set error
 			[self setError:[NSError errorWithDomain:@"HTTP_Error"
-																				 code:1
+																				 code:500
 																		 userInfo:dictInfo]];
 			return YES;
 		}

@@ -14,11 +14,21 @@
 
 @implementation Notify
 
-+ (void) showToastMessage:(NSString*) message {
-	[self showToastMessage:message forDuration:TOAST_DURATION_NORMAL];
++ (void) showToastError:(NSString*) message {
+	[self showToastMessage:message
+									ofType:TOAST_TYPE_ERROR
+						 forDuration:TOAST_DURATION_NORMAL];
 }
 
-+ (void) showToastMessage:(NSString*) message forDuration:(int)duration {
++ (void) showToastWarning:(NSString*) message {
+	[self showToastMessage:message
+									ofType:TOAST_TYPE_WARNING
+						 forDuration:TOAST_DURATION_NORMAL];
+}
+
++ (void) showToastMessage:(NSString*) message
+									 ofType:(NSInteger) type
+							forDuration:(NSInteger) duration {
 
 	// disabled?
 	if ([[TSMessage defaultViewController] isKindOfClass:[DisableNotificationController class]]) {
@@ -30,7 +40,7 @@
 		[TSMessage showNotificationInViewController:[TSMessage defaultViewController]
 																					title:NSLocalizedString(message, nil)
 																			 subtitle:nil
-																					 type:TSMessageNotificationTypeError
+																					 type:type
 																			 duration:duration
 													 canBeDismissedByUser:TRUE];
 	});
