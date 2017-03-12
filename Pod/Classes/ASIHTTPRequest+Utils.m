@@ -7,8 +7,19 @@
 //
 
 #import "ASIHTTPRequest+Utils.h"
+#import "FoundationMacros.h"
 
 @implementation ASIHTTPRequest (Utils)
+
+static NSString* s_defaultErrorMessage;
+
++ (NSString*) defaultErrorMessage {
+	return s_defaultErrorMessage;
+}
+
++ (void) setDefaultErrorMessage:(NSString*) message {
+	s_defaultErrorMessage = message;
+}
 
 - (BOOL) isHTTPError {
 	
@@ -18,12 +29,15 @@
 	//}
 	
 	// http processing error
-	if ([self responseStatusCode] != 200) {
+	if (self.responseStatusCode != 200) {
 		
 		// the error message
-		NSDictionary* dictInfo = [NSDictionary dictionaryWithObject:[self responseString] forKey:NSLocalizedDescriptionKey];
+		NSString* message = self.responseString;
+		if (message == nil) message = s_defaultErrorMessage;
+		if (message == nil) message = @"Erreur / Error";
 		
 		// set error
+		NSDictionary* dictInfo = [NSDictionary dictionaryWithObject:message forKey:NSLocalizedDescriptionKey];
 		[self setError:[NSError errorWithDomain:@"HTTP_Error"
 																			 code:[self responseStatusCode]
 																	 userInfo:dictInfo]];

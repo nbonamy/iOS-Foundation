@@ -11,6 +11,9 @@
 
 @interface ASIHTTPRequest (Utils)
 
++ (NSString*) defaultErrorMessage;
++ (void) setDefaultErrorMessage:(NSString*) message;
+
 - (BOOL) isHTTPError;
 - (BOOL) isPHPError;
 

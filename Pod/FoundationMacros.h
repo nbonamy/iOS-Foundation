@@ -3,6 +3,7 @@
 #define isNSNull(value)     ([value isKindOfClass:[NSNull class]])
 #define isNull(value)       (value == NULL || isNSNull(value))
 #define isNullString(value) (isNull(value) || [value length] == 0)
+#define StringOrEmpty(value) (isNull(value) ? @"" : value)
 
 // localalization
 #define _(x)							NSLocalizedString(x, nil)
