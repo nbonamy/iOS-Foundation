@@ -1,5 +1,14 @@
+//
+//  UIAlertView+Utility.m
+//  Foundation
+//
+//  Created by Nicolas Bonamy on 12/03/2017.
+//  Copyright (c) Nicolas Bonamy. All rights reserved.
+//
 
 #import "UIAlertView+Utility.h"
+
+#define ONCE_PREFIX @"alert_once_"
 
 @implementation UIAlertView (Utility)
 
@@ -7,7 +16,7 @@
 	
 	UIAlertView *result = [[UIAlertView alloc] initWithTitle:[error localizedFailureReason]
 																										message:[error localizedDescription]
-																									 delegate:nil
+																									delegate:nil
 																					cancelButtonTitle:NSLocalizedString(@"OK", @"")
 																					otherButtonTitles:nil];
 	return result;
@@ -16,14 +25,66 @@
 + (void)showWithTitle:(NSString *)title message:(NSString *)message {
 	
 	[[[UIAlertView alloc] initWithTitle:title
-															 message:message
+															message:message
 															delegate:nil
-										 cancelButtonTitle:NSLocalizedString(@"OK", @"")
+										cancelButtonTitle:NSLocalizedString(@"OK", @"")
 										otherButtonTitles:nil] show];
 }
 
 + (void)showWithMessage:(NSString *)message {
 	[UIAlertView showWithTitle:@"" message:message];
+}
+
++ (BOOL) showOnceWithTitle:(NSString*) title
+			 andLocalizedMessage:(NSString*) messageId {
+	return [UIAlertView showOnceWithTitle:NSLocalizedString(title, @"")
+																message:NSLocalizedString(messageId, @"")
+													andIdentifier:messageId];
+}
+
++ (BOOL) showOnceWithMessage:(NSString*) message
+							 andIdentifier:(NSString*) identifier {
+	return [UIAlertView showOnceWithTitle:@"" message:message andIdentifier:identifier];
+}
+
++ (BOOL) showOnceWithTitle:(NSString*) title
+									 message:(NSString*) message
+						 andIdentifier:(NSString*) identifier {
+	
+	// add prefix to add clarity and be able to reset all prompts
+	NSString* defaultsKey = [ONCE_PREFIX stringByAppendingString:identifier];
+	
+	// check if already displayed
+	NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+	BOOL displayed = [userDefaults boolForKey:defaultsKey];
+	if (displayed) {
+		return FALSE;
+	}
+	
+	// store it is
+	[userDefaults setBool:TRUE forKey:defaultsKey];
+	
+	// show it
+	[UIAlertView showWithTitle:title message:message];
+	
+	// done
+	return TRUE;
+	
+}
+
++ (void) resetAllPrompts {
+	
+	// get all keys
+	NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+	NSArray* keys = [[userDefaults dictionaryRepresentation] allKeys];
+	
+	// iterate
+	for (NSString* key in keys) {
+		if ([key hasPrefix:ONCE_PREFIX]) {
+			[userDefaults removeObjectForKey:key];
+		}
+	}
+	
 }
 
 @end

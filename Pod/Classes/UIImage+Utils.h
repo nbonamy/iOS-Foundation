@@ -3,7 +3,7 @@
 //  Foundation
 //
 //  Created by Nicolas Bonamy on 06/01/2014.
-//
+//  Copyright (c) Nicolas Bonamy. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

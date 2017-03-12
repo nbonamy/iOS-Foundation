@@ -3,7 +3,7 @@
 //  Foundation
 //
 //  Created by Nicolas Bonamy on 01/03/2014.
-//
+//  Copyright (c) Nicolas Bonamy. All rights reserved.
 //
 
 #import "Notify.h"

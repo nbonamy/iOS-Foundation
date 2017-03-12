@@ -3,7 +3,7 @@
 //  Foundation
 //
 //  Created by Nicolas Bonamy on 29/04/2014.
-//
+//  Copyright (c) Nicolas Bonamy. All rights reserved.
 //
 
 #import "NSString+Utils.h"

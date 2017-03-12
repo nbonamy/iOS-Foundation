@@ -1,9 +1,9 @@
 //
 //  UIView+Utils.m
-//  Mediastation
+//  Foundation
 //
 //  Created by Nicolas Bonamy on 10/14/11.
-//  Copyright 2011 nabocorp. All rights reserved.
+//  Copyright (c) Nicolas Bonamy. All rights reserved.
 //
 
 #import "UIView+Utils.h"

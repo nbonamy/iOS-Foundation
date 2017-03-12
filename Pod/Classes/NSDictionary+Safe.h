@@ -3,7 +3,7 @@
 //  Scorecast
 //
 //  Created by Nicolas Bonamy on 11/20/11.
-//  Copyright 2011 nabocorp. All rights reserved.
+//  Copyright (c) Nicolas Bonamy. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

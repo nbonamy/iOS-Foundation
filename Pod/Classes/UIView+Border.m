@@ -3,7 +3,7 @@
 //  Foundation
 //
 //  Created by Nicolas Bonamy on 08/08/2015.
-//
+//  Copyright (c) Nicolas Bonamy. All rights reserved.
 //
 
 #import "UIView+Border.h"
