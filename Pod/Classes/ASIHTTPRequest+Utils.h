@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ASIHTTPRequest.h"
+/*#import "ASIHTTPRequest.h"
 
 @interface ASIHTTPRequest (Utils)
 
@@ -18,3 +18,4 @@
 - (BOOL) isPHPError;
 
 @end
+*/

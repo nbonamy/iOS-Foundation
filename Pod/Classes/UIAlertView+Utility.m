@@ -12,6 +12,8 @@
 
 @implementation UIAlertView (Utility)
 
+static NSString* defaultTitle = @"";
+
 + (UIAlertView *)alertViewFromError:(NSError *)error {
 	
 	UIAlertView *result = [[UIAlertView alloc] initWithTitle:[error localizedFailureReason]
@@ -20,6 +22,10 @@
 																					cancelButtonTitle:NSLocalizedString(@"OK", @"")
 																					otherButtonTitles:nil];
 	return result;
+}
+
++ (void) setDefaultTitle:(NSString*) title {
+	defaultTitle = title;
 }
 
 + (void)showWithTitle:(NSString *)title message:(NSString *)message {
@@ -32,7 +38,7 @@
 }
 
 + (void)showWithMessage:(NSString *)message {
-	[UIAlertView showWithTitle:@"" message:message];
+	[UIAlertView showWithTitle:defaultTitle message:message];
 }
 
 + (BOOL) showOnceWithTitle:(NSString*) title

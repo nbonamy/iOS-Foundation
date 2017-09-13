@@ -15,6 +15,6 @@ Pod::Spec.new do |s|
   s.source_files = "Pod/FoundationMacros.h", "Pod/Classes/*.{h,m}"
   s.requires_arc = true
 
-  s.dependency "ASIHTTPRequest"
+  #s.dependency "ASIHTTPRequest"
 
 end

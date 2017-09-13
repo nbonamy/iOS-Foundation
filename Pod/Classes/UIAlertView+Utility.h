@@ -27,6 +27,9 @@
  *		The UIAlertView creation method lets you keep the dialog localized in case you provide translation
  *		for "OK" string in your Localizable.strings file.
  */
+
++ (void) setDefaultTitle:(NSString*) title;
+
 + (void) showWithMessage:(NSString*) message;
 
 + (void) showWithTitle:(NSString*) title

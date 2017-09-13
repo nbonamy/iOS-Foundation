@@ -7,7 +7,7 @@
 //
 
 #import "ASIHTTPRequest+Utils.h"
-#import "FoundationMacros.h"
+/*#import "FoundationMacros.h"
 
 @implementation ASIHTTPRequest (Utils)
 
@@ -75,3 +75,4 @@ static NSString* s_defaultErrorMessage;
 }
 
 @end
+*/
