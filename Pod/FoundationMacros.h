@@ -5,6 +5,8 @@
 #define isNullString(value) (isNull(value) || [value length] == 0)
 #define StringOrEmpty(value) (isNull(value) ? @"" : value)
 
+#define fixNSNull(value)    if (isNSNull(value)) { value = nil; }
+
 // localalization
 #define _(x)							NSLocalizedString(x, nil)
 
@@ -18,7 +20,8 @@
 #define IPHONE_6_WIDTH			375
 #define IPHONE_6PLUS_WIDTH	414
 
-// devide info
+// device info
+#define IS_IPHONE()									(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 #define IS_IPAD()										(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #define IS_SHORT_IPHONE()						([UIScreen mainScreen].bounds.size.height == SHORT_IPHONE_HEIGHT)
 #define IS_TALL_IPHONE()						([UIScreen mainScreen].bounds.size.height == TALL_IPHONE_HEIGHT)
@@ -38,7 +41,7 @@
 #define IS_IOS_11_OR_LATER()	([[[UIDevice currentDevice] systemVersion] floatValue] >= 11.0)
 
 // metrics
-#define TABBAR_HEIGHT (IS_VERY_VERY_TALL_IPHONE()?98:IS_IPAD()&&IS_IOS_7()?56:49)
+#define TABBAR_HEIGHT (IS_VERY_VERY_TALL_IPHONE()?98:49)
 
 // dynamic properties
 #define ADD_DYNAMIC_PROPERTY(PROPERTY_TYPE,PROPERTY_NAME,SETTER_NAME) \

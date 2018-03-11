@@ -14,6 +14,12 @@
 
 @implementation Notify
 
++ (void) showToastSuccess:(NSString*) message {
+	[self showToastMessage:message
+									ofType:TOAST_TYPE_SUCCESS
+						 forDuration:TOAST_DURATION_NORMAL];
+}
+
 + (void) showToastError:(NSString*) message {
 	[self showToastMessage:message
 									ofType:TOAST_TYPE_ERROR

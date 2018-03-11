@@ -6,7 +6,7 @@
 //  Copyright (c) Nicolas Bonamy. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+//#import <Foundation/Foundation.h>
 
 #define TOAST_DURATION_SHORT 1
 #define TOAST_DURATION_NORMAL 3
@@ -22,6 +22,7 @@
 
 @interface Notify : NSObject
 
++ (void) showToastSuccess:(NSString*) message;
 + (void) showToastError:(NSString*) message;
 + (void) showToastWarning:(NSString*) message;
 

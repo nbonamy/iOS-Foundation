@@ -6,7 +6,7 @@
 //  Copyright (c) Nicolas Bonamy. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+//#import <Foundation/Foundation.h>
 
 @interface NSString (Utils)
 

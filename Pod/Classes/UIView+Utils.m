@@ -7,7 +7,6 @@
 //
 
 #import "UIView+Utils.h"
-#import "TSMessage.h"
 
 @implementation UIView (Utils)
 

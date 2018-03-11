@@ -10,7 +10,9 @@
 
 @interface UIImage (Utils)
 
-+ (UIImage *)imageWithColor:(UIColor *)color;
-+ (UIImage *)imageWithColor:(UIColor *)color ofWidth:(int) width andHeight:(int) height;
+- (UIImage*) scaleToSize:(CGSize) size;
+
++ (UIImage *)imageWithColor:(UIColor*) color;
++ (UIImage *)imageWithColor:(UIColor*) color ofWidth:(int) width andHeight:(int) height;
 
 @end

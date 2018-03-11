@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
 
-  s.name         = "Foundation"
+  s.name         = "iOS-Foundation"
   s.version      = "0.1.0"
   s.summary      = "Some classes and categories for iOS projects"
   s.description  = "Not intended to be used by external people: stability of this is not guaranteed!"
@@ -15,6 +15,6 @@ Pod::Spec.new do |s|
   s.source_files = "Pod/FoundationMacros.h", "Pod/Classes/*.{h,m}"
   s.requires_arc = true
 
-  #s.dependency "ASIHTTPRequest"
+  s.dependency "TSMessages"
 
 end
