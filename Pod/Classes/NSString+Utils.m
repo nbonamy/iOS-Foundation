@@ -27,6 +27,10 @@
 	
 }
 
+-(NSString*) urlEncode {
+	return [self urlEncodeUsingEncoding];
+}
+
 -(NSString*) urlEncodeUsingEncoding {
 	return [self urlEncodeUsingEncoding:NSUTF8StringEncoding];
 }

@@ -1,16 +1,16 @@
 //
-//  UIAlertView+Utility.m
+//  UIAlert+Utility.m
 //  Foundation
 //
 //  Created by Nicolas Bonamy on 12/03/2017.
 //  Copyright (c) Nicolas Bonamy. All rights reserved.
 //
 
-#import "UIAlertView+Utility.h"
+#import "UIAlert.h"
 
 #define ONCE_PREFIX @"alert_once_"
 
-@implementation UIAlertView (Utility)
+@implementation UIAlert
 
 static NSString* defaultTitle = @"";
 
@@ -38,19 +38,19 @@ static NSString* defaultTitle = @"";
 }
 
 + (void)showWithMessage:(NSString *)message {
-	[UIAlertView showWithTitle:defaultTitle message:message];
+	[UIAlert showWithTitle:defaultTitle message:message];
 }
 
 + (BOOL) showOnceWithTitle:(NSString*) title
 			 andLocalizedMessage:(NSString*) messageId {
-	return [UIAlertView showOnceWithTitle:NSLocalizedString(title, @"")
+	return [UIAlert showOnceWithTitle:NSLocalizedString(title, @"")
 																message:NSLocalizedString(messageId, @"")
 													andIdentifier:messageId];
 }
 
 + (BOOL) showOnceWithMessage:(NSString*) message
 							 andIdentifier:(NSString*) identifier {
-	return [UIAlertView showOnceWithTitle:@"" message:message andIdentifier:identifier];
+	return [UIAlert showOnceWithTitle:@"" message:message andIdentifier:identifier];
 }
 
 + (BOOL) showOnceWithTitle:(NSString*) title
@@ -71,7 +71,7 @@ static NSString* defaultTitle = @"";
 	[userDefaults setBool:TRUE forKey:defaultsKey];
 	
 	// show it
-	[UIAlertView showWithTitle:title message:message];
+	[UIAlert showWithTitle:title message:message];
 	
 	// done
 	return TRUE;

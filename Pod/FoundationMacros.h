@@ -29,6 +29,8 @@
 #define IS_IPHONE6_PLUS()						([UIScreen mainScreen].bounds.size.height == IPHONE6PLUS_HEIGHT)
 #define IS_VERY_TALL_IPHONE()				([UIScreen mainScreen].bounds.size.height >= IPHONE6_HEIGHT)
 #define IS_VERY_VERY_TALL_IPHONE()	([UIScreen mainScreen].bounds.size.height >= IPHONEX_HEIGHT)
+#define IS_IPHONEX()								([UIScreen mainScreen].bounds.size.height >= IPHONEX_HEIGHT)
+
 // os info
 #define IS_RETINA()       ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] == YES && [[UIScreen mainScreen] scale] == 2.00)
 #define IS_FLAT_UI()			([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)

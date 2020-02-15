@@ -14,6 +14,7 @@
 
 - (BOOL) isEmail;
 
+-(NSString*) urlEncode;
 -(NSString*) urlEncodeUsingEncoding;
 -(NSString*) urlEncodeUsingEncoding:(NSStringEncoding)encoding;
 

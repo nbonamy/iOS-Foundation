@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIAlertView (Utility)
+@interface UIAlert : NSObject
 
 /**
  * Uses [error localizedFailureReason] as UIAlertView title and [error localizedDescription] as its message.
