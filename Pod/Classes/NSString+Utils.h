@@ -10,6 +10,8 @@
 
 @interface NSString (Utils)
 
++ (NSString*) stringFromDeviceToken:(NSData*) deviceToken;
+
 - (NSString*) trim;
 
 - (BOOL) isEmail;

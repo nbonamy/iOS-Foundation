@@ -45,4 +45,23 @@
 	
 }
 
++ (NSString*) stringFromDeviceToken:(NSData*) deviceToken {
+	
+	// check
+	NSUInteger length = deviceToken.length;
+	if (length == 0) {
+		return nil;
+	}
+	
+	// convert
+	const unsigned char *buffer = deviceToken.bytes;
+	NSMutableString *hexString  = [NSMutableString stringWithCapacity:(length * 2)];
+	for (int i = 0; i < length; ++i) {
+		[hexString appendFormat:@"%02x", buffer[i]];
+	}
+	
+	// done
+	return [hexString copy];
+}
+
 @end
